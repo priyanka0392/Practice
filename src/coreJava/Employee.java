@@ -76,7 +76,6 @@ public class Employee implements EmployeeInterface{
 		return employees;
 		
 		//sort by last name should change according to situation
-		//write all the entries in a file
 		//Custom exception(throw multiple exceptions)
 		//method in a new class which implements polymorphism
 		

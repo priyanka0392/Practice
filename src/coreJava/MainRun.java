@@ -1,10 +1,14 @@
 package coreJava;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public class MainRun {
 
+	@SuppressWarnings("null")
 	public static void main(String args[])
 	{
 		Employee e = new Employee();
@@ -48,13 +52,45 @@ public class MainRun {
 			}
 				
 		case 4 : {
+			BufferedWriter bw = null;
+			FileWriter fw = null; 
 			List<Employee> emp = e.getAllEmployee();
+			String last = null;
 			for(Employee em : emp )
 			{
+				
 				System.out.println("Emp id"+em.getEmpId());
 				System.out.println("Emp name"+em.getFirstName());
 				System.out.println("Emp last name"+em.getLastName());
+				last = em.getLastName();
 			}
+			
+			try {
+				fw = new FileWriter("/Users/priyanka/Sample.txt");
+				bw = new BufferedWriter(fw);
+				bw.write(last);
+				System.out.println(fw.toString().toString());
+			}
+			 catch (IOException ex) {
+
+					ex.printStackTrace();
+
+				} finally {
+
+					try {
+
+						if (bw != null)
+							bw.close();
+
+						if (fw != null)
+							fw.close();
+
+					} catch (IOException ex) {
+
+						ex.printStackTrace();
+
+					}
+		}
 		}
 				break;
 				
