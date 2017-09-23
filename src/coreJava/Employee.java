@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-// employee model
+
 public class Employee implements EmployeeInterface{
 	
 	private int empId;
@@ -59,8 +59,9 @@ public class Employee implements EmployeeInterface{
 		//sort by last name should change according to situation
 		//user entry till user says no
 		//write all the entries in a file
-		//Custom exception
+		//Custom exception(throw multiple exceptions)
 		//method in a new class which implements polymorphism
+		
 	}
 	
 	
