@@ -1,10 +1,9 @@
 package coreJava;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-// pikachu here
+import java.util.Scanner;
+
 public class Employee implements EmployeeInterface{
 	
 	private int empId;
@@ -15,8 +14,20 @@ public class Employee implements EmployeeInterface{
 	
 	public Employee() {
 		employees = new ArrayList<Employee>();
+		employees.add(new Employee(1, "Priyanka", "Muppuri"));
+		employees.add(new Employee(2, "Manish", "hate"));
 	}
+	
 		
+	public Employee(int empId, String firstName, String lastName) {
+		super();
+		this.empId = empId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+
+
 	public int getEmpId() {
 		return empId;
 	}
@@ -38,26 +49,33 @@ public class Employee implements EmployeeInterface{
 	}
 	@Override
 	public void add(Employee employee) {
+		
 		employees.add(employee);
 		
 	}
 	@Override
 	public void delete(int empId) {
-		
-
+		for(Employee e : employees)
+		{
+			if(e.getEmpId() == empId)
+				employees.remove(e);			
+		}
 	}
 	
 	@Override
-	public int getEmployee(int empId) {
-		// TODO Auto-generated method stub
-		return 0;
+	public Employee getEmployee(int empId) {
+		for(Employee e : employees)
+		{
+			if(e.getEmpId() == empId)
+				return e;		
+		}
+		return null;
 	}
 	@Override
 	public List getAllEmployee() {
-		// TODO Auto-generated method stub
-		return null;
+		return employees;
+		
 		//sort by last name should change according to situation
-		//user entry till user says no
 		//write all the entries in a file
 		//Custom exception(throw multiple exceptions)
 		//method in a new class which implements polymorphism
