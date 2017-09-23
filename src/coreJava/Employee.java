@@ -2,7 +2,11 @@ package coreJava;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Scanner;
+=======
+import java.util.Map;
+>>>>>>> ee921cce0b936cd5517b224d230a973f552cf03b
 
 public class Employee implements EmployeeInterface{
 	
