@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+// employee model
 public class Employee implements EmployeeInterface{
 	
 	private int empId;
