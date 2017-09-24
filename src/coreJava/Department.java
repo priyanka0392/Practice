@@ -12,6 +12,7 @@ public class Department {
 		this.deptId = deptId;
 	}
 	
-	
-	
+	public void dataOfEmployee(Employee e) {
+	e.data();
+	}
 }

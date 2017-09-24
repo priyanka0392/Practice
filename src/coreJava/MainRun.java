@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class MainRun {
 
 	@SuppressWarnings("null")
-	public static void main(String args[])
+	public static void main(String args[]) 
 	{
 		Employee e = new Employee();
 		
@@ -19,7 +19,7 @@ public class MainRun {
 		
 		for(int i = 0 ; ;)
 		{
-			System.out.println(" 1. Add \n 2. Delete \n 3. Get an employee \n 4. Get all employees \n 5. Exit");
+			System.out.println(" 1. Add \n 2. Delete \n 3. Get an employee \n 4. Get all employees \n 5. Exit\n6. Sort");
 			int n = sc.nextInt();
 		switch(n)
 		{
@@ -54,7 +54,20 @@ public class MainRun {
 		case 4 : {
 			BufferedWriter bw = null;
 			FileWriter fw = null; 
+			
 			List<Employee> emp = e.getAllEmployee();
+			
+			
+				try {
+					e.format();
+				} catch (CustomException e1) {
+					// TODO Auto-generated catch block
+					
+				}
+			
+			
+			emp.forEach(name->System.out.print(name));
+			/*
 			String last = null;
 			for(Employee em : emp )
 			{
@@ -64,12 +77,12 @@ public class MainRun {
 				System.out.println("Emp last name"+em.getLastName());
 				last = em.getLastName();
 			}
-			
+			*/
 			try {
 				fw = new FileWriter("/Users/priyanka/Sample.txt");
 				bw = new BufferedWriter(fw);
-				bw.write(last);
-				System.out.println(fw.toString().toString());
+				bw.write(emp.toString());
+				
 			}
 			 catch (IOException ex) {
 
@@ -96,6 +109,15 @@ public class MainRun {
 				
 		case 5 : System.exit(0);
 			
+		case 6 : e.sortFirstName();
+				 break;
+		case 7:
+			
+			Employee e1=new PartTimeEmployee();
+			new Department().dataOfEmployee(e1);
+			
+		
+		
 		}
 		}
 		

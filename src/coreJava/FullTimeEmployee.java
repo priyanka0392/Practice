@@ -12,5 +12,10 @@ public class FullTimeEmployee extends Employee{
 		this.pension = pension;
 	}
 	
+	public void data() {
+		System.out.println("full time data");
+	}
+
+	
 	
 }

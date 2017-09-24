@@ -1,35 +1,34 @@
 package coreJava;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
-import java.util.Scanner;
-import java.util.Map;
-import java.util.Scanner;
-
-public class Employee implements EmployeeInterface{
+public class Employee implements EmployeeInterface, Comparator<Employee>{
 	
 	private int empId;
 	private String firstName;
 	private String lastName;
 	List<Employee> employees;
-	
-	
-	public Employee() {
-		employees = new ArrayList<Employee>();
-		employees.add(new Employee(1, "Priyanka", "Muppuri"));
-		employees.add(new Employee(2, "Manish", "hate"));
-	}
-	
+	static int count=0;
 		
+	public Employee() {
+		
+		employees = new ArrayList<Employee>();
+		employees.add(new Employee(1, "Priyanka", "muppuri"));
+		employees.add(new Employee(2, "Manish", "hate"));
+		
+	}
+			
 	public Employee(int empId, String firstName, String lastName) {
 		super();
 		this.empId = empId;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		count++;
 	}
-
-
 
 	public int getEmpId() {
 		return empId;
@@ -58,15 +57,18 @@ public class Employee implements EmployeeInterface{
 	}
 	@Override
 	public void delete(int empId) {
-		for(Employee e : employees)
-		{
-			if(e.getEmpId() == empId)
-				employees.remove(e);			
+		Iterator<Employee> iter = employees.iterator();
+		while (iter.hasNext()) {
+		    if (iter.next().getEmpId() == empId) {
+		        iter.remove();
+		    }
 		}
+		
 	}
 	
 	@Override
 	public Employee getEmployee(int empId) {
+
 		for(Employee e : employees)
 		{
 			if(e.getEmpId() == empId)
@@ -76,14 +78,46 @@ public class Employee implements EmployeeInterface{
 	}
 	@Override
 	public List getAllEmployee() {
+		System.out.println("count==="+count);
 		return employees;
 		
-		//sort by last name should change according to situation
-		//Custom exception(throw multiple exceptions)
-		//method in a new class which implements polymorphism
+				//method in a new class which implements polymorphism
 		
 	}
 	
+	public void sortFirstName()
+	{
+		Collections.sort(employees, (p1, p2) -> p1.getFirstName().compareTo(p2.getFirstName()));
+		System.out.println(employees);
+	}
+	
+	public void sortDesc()
+	{
+		Collections.sort(employees, new Employee());
+		System.out.println(employees);
+		
+	}
+	public String toString() {
+        return "[" + firstName + " " + lastName +
+                " " + empId  +"]";
+    }
+
+	@Override
+	public void format() throws CustomException {
+		throw new CustomException("darling");
+		
+	}
+
+	@Override
+	public int compare(Employee o1, Employee o2) {		
+		
+		return o1.lastName.compareTo(o2.lastName);
+	}
+
+	public void data() {
+		System.out.println("General data");
+	}
+
 	
 	
 }

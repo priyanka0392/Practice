@@ -9,5 +9,5 @@ public interface EmployeeInterface {
 	public void delete(int empId);
 	public Employee getEmployee(int empId);
 	public List getAllEmployee();
-	
+	public void format() throws CustomException;
 }

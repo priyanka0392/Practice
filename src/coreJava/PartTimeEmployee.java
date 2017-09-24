@@ -12,6 +12,11 @@ public class PartTimeEmployee extends Employee{
 		this.numberOfHours = numberOfHours;
 	}
 	
-	
+	public void data()
+	{
+		super.data();
+		System.out.println("\npart time");
+	}
+
 
 }
